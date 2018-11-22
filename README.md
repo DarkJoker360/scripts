@@ -6,7 +6,7 @@ These scripts are made for making more easier the rom downloading and building p
 
 - Create a new directory
 
-- Clone on of my scriptson the directory
+- Clone one of my scripts on the directory
 
 - Run my scripts by: " . scriptname '
 
