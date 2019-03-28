@@ -49,8 +49,8 @@ echo "Do you want to clone P8 Lite repos?"
 select yn in "Yes" "No"; do
     case $yn in
         Yes )   git clone https://github.com/DarkJoker360/android_device_huawei_alice -b cm-14.1 device/huawei/alice
-                git clone https://github.com/OpenKirin/android_vendor_huawei_alice -b cm-14.1 vendor/huawei/alice
-                git clone https://github.com/OpenKirin/android_kernel_huawei_hi6210sft -b cm-14.1 kernel/huawei/alice
+                git clone https://github.com/DarkJoker360/android_vendor_huawei_alice -b cm-14.1 vendor/huawei/alice
+                git clone https://github.com/DarkJoker360/android_kernel_huawei_alice -b cm-14.1 kernel/huawei/alice
                 cd bionic/libc/bionic && git remote add gps https://github.com/DarkJoker360/android_bionic && git fetch gps && git cherry-pick 05f2b6707a50edbf1cd60dee1b107992b42964b0
                 cd ../../.. && cd system/bt && git remote add bt https://github.com/DarkJoker360/android_system_bt && git fetch bt && git cherry-pick 46c163e13dbe21476e3fe8e2f94ae10af28f2c5c
                 cd ../.. && cd frameworks/native && git remote add hwc https://github.com/DarkJoker360/android_frameworks_native && git fetch hwc && git cherry-pick a083e29978432dfc04039a224c82925cbcab780f
