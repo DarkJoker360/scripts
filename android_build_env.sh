@@ -36,6 +36,8 @@ sudo DEBIAN_FRONTEND=noninteractive apt install -y adb autoconf automake axel bc
     patch patchelf pkg-config pngcrush pngquant python python-all-dev re2c schedtool squashfs-tools subversion texinfo \
     unzip w3m xsltproc zip zlib1g-dev lzip "${PACKAGES}"
 
+sudo apt-get install openjdk-8-jdk
+
 # For all those distro hoppers, lets setup your git credentials
 GIT_USERNAME="$(git config --get user.name)"
 GIT_EMAIL="$(git config --get user.email)"
