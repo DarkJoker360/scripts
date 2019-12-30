@@ -37,6 +37,8 @@ sudo DEBIAN_FRONTEND=noninteractive apt install -y adb autoconf automake axel bc
     unzip w3m xsltproc zip zlib1g-dev lzip "${PACKAGES}"
 
 sudo apt-get install openjdk-8-jdk
+sudo apt install ruby
+sudo gem install rmega
 
 # For all those distro hoppers, lets setup your git credentials
 GIT_USERNAME="$(git config --get user.name)"
