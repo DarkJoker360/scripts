@@ -13,4 +13,9 @@ rm -rf hardware/qcom-caf/sm8150/audio && git clone https://github.com/DarkJoker3
 
 . build/envsetup.sh
 
-./vendor/lineage/build/tools/repopick.py -t eleven-qti-bt-stack # QTI BT stack
+# QTI BT stack
+git clone https://github.com/LineageOS/android_vendor_qcom_opensource_bluetooth-commonsys-intf -b $BRANCH vendor/qcom/opensource/commonsys-intf/bluetooth
+git clone https://github.com/LineageOS/android_vendor_qcom_opensource_bluetooth_ext -b $BRANCH vendor/qcom/opensource/commonsys/bluetooth_ext
+git clone https://github.com/LineageOS/android_vendor_qcom_opensource_system_bt -b $BRANCH vendor/qcom/opensource/commonsys/system/bt
+git clone https://github.com/LineageOS/android_vendor_qcom_opensource_packages_apps_Bluetooth -b $BRANCH vendor/qcom/opensource/commonsys/packages/apps/Bluetooth
+repopick -t "eleven-qti-bt-stack" 
