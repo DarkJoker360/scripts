@@ -55,7 +55,8 @@ if [[ -z ${GIT_EMAIL} ]]; then
 	git config --global user.email "${EMAIL}"
 fi
 git config --global credential.helper "cache --timeout=7200"
-echo "Github credentials setup successfully"
+git config --global core.editor "nano"
+echo "Git configured  successfully"
 
 # From Ubuntu 18.10 onwards and Debian Buster libncurses5 package is not available, so we need to hack our way by symlinking required library
 # shellcheck disable=SC2076
