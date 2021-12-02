@@ -17,3 +17,9 @@ sudo systemctl enable system76-power.service
 sudo systemctl start system76-power.service
 sudo system76-power graphics hybrid
 fi
+
+cd /usr/share/nvidia
+sudo ln -s nvidia-application-profiles-*-key-documentation nvidia-application-profiles-key-documentation
+cd ../../..
+
+echo "Nvidia drivers are now correctly installed."
