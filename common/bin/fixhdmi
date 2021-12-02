@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#
+# Simple tool to fixup HDMI resolution of the output screen.
+# by Simone Esposito (simoespo159@gmail.com)
+#
+
+xrandr --output HDMI1 --auto
+echo "HDMI resolution fixed."
