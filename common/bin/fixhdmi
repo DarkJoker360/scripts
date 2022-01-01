@@ -6,4 +6,6 @@
 #
 
 xrandr --output HDMI1 --auto
+xrandr --output HDMI-1 --auto
+
 echo "HDMI resolution fixed."
