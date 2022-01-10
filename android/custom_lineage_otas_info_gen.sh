@@ -38,19 +38,20 @@ if [[ "$1" == "-o" || "$1" == "--output-file" ]]; then
         output_file=$2
     fi
 
-    echo '{
-    "response": [
-        {
-        "datetime": '$BUILD_DATE',
-        "filename": "'$LINEAGE_FILE'",
-        "id": "'$MD5'",
-        "romtype": "unofficial",
-        "size": '$SIZE',
-        "url": "-",
-        "version": "'$LINEAGE_VERSION'"
-        }
-    ]
-    }' > $output_file
+echo '{
+  "response": [
+    {
+      "datetime": '$BUILD_DATE',
+      "filename": "'$LINEAGE_FILE'",
+      "id": "'$MD5'",
+      "romtype": "unofficial",
+      "size": '$SIZE',
+      "url": "-",
+      "version": "'$LINEAGE_VERSION'"
+    }
+  ]
+}' > $output_file
+
 fi
 
 printf "\n\n*******************************************************************"
