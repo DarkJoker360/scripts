@@ -31,6 +31,28 @@ echo '{
   ]
 }'
 
+if [[ "$1" == "-o" || "$1" == "--output-file" ]]; then
+    output_file="lineage_$DEVICE_CODENAME.json"
+
+    if [ "$2" != "" ]; then
+        output_file=$2
+    fi
+
+    echo '{
+    "response": [
+        {
+        "datetime": '$BUILD_DATE',
+        "filename": "'$LINEAGE_FILE'",
+        "id": "'$MD5'",
+        "romtype": "unofficial",
+        "size": '$SIZE',
+        "url": "-",
+        "version": "'$LINEAGE_VERSION'"
+        }
+    ]
+    }' > $output_file
+fi
+
 printf "\n\n*******************************************************************"
 echo "Update your json with the latest update info !"
 printf "For any question about the json file formatting see:\nhttps://github.com/LineageOS/android_packages_apps_Updater/blob/lineage-17.1/README.md\n"
