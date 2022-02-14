@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
 
-read -e -p "Are you using any custom kernel? [Y/n]: " input
-if [[ "$input" =~ ^[Yy]$ ]]; then
-sudo pacman -Sy nvidia-dkms nvidia-utils nvidia-settings libvdpau-va-gl
-else
-sudo pacman -Sy nvidia nvidia-utils nvidia-settings libvdpau-va-gl
-fi
+sudo pacman -Sy nvidia nvidia-settings
 
 #Stuff for people with a integrated + dedicated GPU
 read -e -p "Do you have Intel integrated GPU and discrete NVIDIA GPU? [y/n]: " input
 if [[ "$input" =~ ^[Yy]$ ]]; then
-yay -Sy system76-power
+sudo pacman -S gdm-prime optimus-manager
 
-# Stuff for system76-power to work properly
-sudo systemctl enable system76-power.service
-sudo systemctl start system76-power.service
-sudo system76-power graphics hybrid
+sudo sed -i "s;#WaylandEnable=false;WaylandEnable=false;g" /etc/gdm/custom.conf
+sudo systemctl enable optimus-manager.service
+sudo systemctl start optimus-manager.service
+
+echo "Adding PCI Power Control config for better power management..."
+sudo echo "[optimus]" > /etc/optimus-manager/optimus-manager.conf
+sudo echo "switching=none" >> /etc/optimus-manager/optimus-manager.conf
+sudo echo "pci_power_control=yes" >> /etc/optimus-manager/optimus-manager.conf
+sudo echo "pci_remove=yes" >> /etc/optimus-manager/optimus-manager.conf
+sudo echo "pci_reset=no" >> /etc/optimus-manager/optimus-manager.conf
 fi
 
 cd /usr/share/nvidia
