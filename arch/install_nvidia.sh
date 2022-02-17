@@ -5,7 +5,7 @@ sudo pacman -Sy nvidia nvidia-settings
 #Stuff for people with a integrated + dedicated GPU
 read -e -p "Do you have Intel integrated GPU and discrete NVIDIA GPU? [y/n]: " input
 if [[ "$input" =~ ^[Yy]$ ]]; then
-sudo pacman -S gdm-prime optimus-manager
+sudo pacman -S gdm-prime optimus-manager glxinfo
 
 sudo sed -i "s;#WaylandEnable=false;WaylandEnable=false;g" /etc/gdm/custom.conf
 sudo systemctl enable optimus-manager.service
