@@ -23,14 +23,14 @@ fail () {
 }
 
 echo "Merging tag $TAG ..."
-git fetch https://source.codeaurora.org/quic/la/kernel/msm-4.14 $TAG 
+git fetch https://git.codelinaro.org/clo/la/kernel/msm-4.14 $TAG 
 git merge FETCH_HEAD || fail
 
-git fetch https://source.codeaurora.org/quic/la/platform/vendor/opensource/audio-kernel/ $TAG 
+git fetch https://git.codelinaro.org/clo/la/platform/vendor/opensource/audio-kernel/ $TAG 
 git merge FETCH_HEAD || fail
 
 for i in qcacld-3.0 qca-wifi-host-cmn fw-api; do
-    git fetch https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/$i $TAG
+    git fetch https://git.codelinaro.org/clo/la/platform/vendor/qcom-opensource/wlan/$i $TAG
     git merge FETCH_HEAD -X subtree=drivers/staging/$i || fail
 done
 
