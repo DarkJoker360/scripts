@@ -2,7 +2,7 @@
 
 sudo pacman -Sy nvidia nvidia-settings
 
-#Stuff for people with a integrated + dedicated GPU
+# Stuff for people with a integrated + dedicated GPU (may requires chaotic aur)
 read -e -p "Do you have Intel integrated GPU and discrete NVIDIA GPU? [y/n]: " input
 if [[ "$input" =~ ^[Yy]$ ]]; then
 sudo pacman -S gdm-prime optimus-manager glxinfo
@@ -17,6 +17,9 @@ sudo echo "switching=none" >> /etc/optimus-manager/optimus-manager.conf
 sudo echo "pci_power_control=yes" >> /etc/optimus-manager/optimus-manager.conf
 sudo echo "pci_remove=yes" >> /etc/optimus-manager/optimus-manager.conf
 sudo echo "pci_reset=no" >> /etc/optimus-manager/optimus-manager.conf
+sudo echo "startup_mode=auto" >> /etc/optimus-manager/optimus-manager.conf
+sudo echo "startup_auto_battery_mode=integrated" >> /etc/optimus-manager/optimus-manager.conf
+sudo echo "startup_auto_extpower_mode=hybrid" >> /etc/optimus-manager/optimus-manager.conf
 fi
 
 cd /usr/share/nvidia
